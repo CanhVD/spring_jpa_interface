@@ -15,7 +15,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    // Cách 1 để lấy danh sách user
     public List<UserInfoProjection> getListUsers() {
         return userRepository.findAllUserInfo();
+    }
+
+    // Cách 2 để lấy danh sách user
+    public List<UserInfoProjection> getListUsers2() {
+        return userRepository.findAllUserInfo2();
     }
 }

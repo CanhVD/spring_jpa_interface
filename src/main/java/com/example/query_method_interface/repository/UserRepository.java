@@ -20,4 +20,14 @@ public interface UserRepository extends JpaRepository<User, Integer> {
         FROM `users` u
     """, nativeQuery = true)
     List<UserInfoProjection> findAllUserInfo();
+
+    @Query("""
+        SELECT u.username AS username,
+               u.email AS email,
+               u.status AS status,
+               u.createBy AS createBy,
+               u.updateBy AS updateBy
+        FROM User u
+    """)
+    List<UserInfoProjection> findAllUserInfo2();
 }

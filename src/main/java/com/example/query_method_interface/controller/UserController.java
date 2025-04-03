@@ -14,8 +14,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    // Cách 1 để lấy danh sách user
     @GetMapping
-    public ResponseEntity<?> test() {
+    public ResponseEntity<?> getListUser1() {
         return ResponseEntity.ok(userService.getListUsers());
+    }
+
+    // Cách 2 để lấy danh sách user
+    @GetMapping("cach2")
+    public ResponseEntity<?> getListUser2() {
+        return ResponseEntity.ok(userService.getListUsers2());
     }
 }
