@@ -21,7 +21,7 @@ public class User {
     private String createBy;
 
     @Column(name = "created_at")
-    private Instant createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "email")
     private String email;
@@ -39,6 +39,6 @@ public class User {
     private LocalDateTime updatedAt;
 
     @Column(name = "username")
-    private LocalDateTime username;
+    private String username;
 
 }

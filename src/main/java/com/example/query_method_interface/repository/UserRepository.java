@@ -10,22 +10,14 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    @Query("""
+    @Query(value = """
         SELECT
             username,
             email,
             status,
             create_by,
             update_by
-        FROM users u
-    """)
+        FROM `users` u
+    """, nativeQuery = true)
     List<UserInfoProjection> findAllUserInfo();
-
-    interface UserInfoProjection {
-        String getUsername();
-        String getEmail();
-        Integer getStatus();
-        String getCreateBy();
-        String getUpdateBy();
-    }
 }
