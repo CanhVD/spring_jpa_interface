@@ -25,4 +25,10 @@ public class UserController {
     public ResponseEntity<?> getListUser2() {
         return ResponseEntity.ok(userService.getListUsers2());
     }
+
+    // Cách 3 để lấy danh sách user (build được nhưng ko run được)
+    @GetMapping("cach3")
+    public ResponseEntity<?> getListUser3() {
+        return ResponseEntity.ok(userService.getListUsers3());
+    }
 }
