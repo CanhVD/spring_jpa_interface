@@ -1,7 +1,8 @@
 package com.example.query_method_interface.service;
 
-import com.example.query_method_interface.dto.UserDTO;
 import com.example.query_method_interface.dto.UserInfoProjection;
+import com.example.query_method_interface.dto.UserJoinTokenInterface;
+import com.example.query_method_interface.model.User;
 import com.example.query_method_interface.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +28,11 @@ public class UserService {
     }
 
     // Cách 3 để lấy danh sách user
-    public List<UserDTO> getListUsers3() {
-        return userRepository.findAllUserInfo2().stream()
-                .map(UserDTO::of)
-                .toList();
+    public List<User> getListUsers3() {
+        return userRepository.findByUsername("Mac Pham");
+    }
+
+    public List<UserJoinTokenInterface> joinUseAndToken() {
+        return userRepository.joinUserAndToken();
     }
 }

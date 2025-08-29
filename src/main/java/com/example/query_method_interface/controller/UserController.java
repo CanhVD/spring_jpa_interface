@@ -31,4 +31,9 @@ public class UserController {
     public ResponseEntity<?> getListUser3() {
         return ResponseEntity.ok(userService.getListUsers3());
     }
+
+    @GetMapping("join")
+    public ResponseEntity<?> joinUseAndToken() {
+        return ResponseEntity.ok(userService.joinUseAndToken());
+    }
 }

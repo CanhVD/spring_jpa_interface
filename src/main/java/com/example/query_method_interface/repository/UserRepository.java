@@ -1,6 +1,7 @@
 package com.example.query_method_interface.repository;
 
 import com.example.query_method_interface.dto.UserInfoProjection;
+import com.example.query_method_interface.dto.UserJoinTokenInterface;
 import com.example.query_method_interface.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -30,4 +31,19 @@ public interface UserRepository extends JpaRepository<User, Integer> {
         FROM User u
     """)
     List<UserInfoProjection> findAllUserInfo2();
+
+    @Query("""
+        SELECT u.username AS username,
+               u.email AS email,
+               u.status AS status,
+               u.createBy AS createBy,
+               u.updateBy AS updateBy,
+               t.accessToken AS accessToken
+        FROM User u
+        INNER JOIN Token t
+        ON u.id = t.userId
+    """)
+    List<UserJoinTokenInterface> joinUserAndToken();
+
+    List<User> findByUsername(String lastName);
 }
